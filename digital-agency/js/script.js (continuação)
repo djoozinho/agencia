@@ -1,0 +1,78 @@
+            },
+            768: {
+                items: 3,
+                touchDrag:false,
+                mouseDrag:false,
+            },
+            480: {
+                items: 2,
+                touchDrag:true,
+                mouseDrag:true,
+            },
+            320: {
+                items: 1,
+                touchDrag:true,
+                mouseDrag:true,
+            },
+        }
+    });
+
+/*========================================
+      Blog Slick Carousel Vertical
+===========================================*/
+    $(document).ready(function(){
+
+        if ($(".slider-detail").length) {
+            $('.slider-detail').slick({
+                slidesToShow: 1,
+                slidesToScroll: 1,
+                arrows: false,
+                active: true,
+                // fade: true,
+                asNavFor: '.slider-img'
+            });
+        }
+
+        if ($(".slider-img").length) {
+            $('.slider-img').slick({
+                vertical: true,
+                verticalSwiping: true,
+                slidesToShow: 1,
+                slidesToScroll: 1,
+                asNavFor: '.slider-detail',
+                dots: false,
+                arrows: false,
+                focusOnSelect: true,
+            });
+        }
+
+
+        $('#blog-circle-left').click(function(){
+            $('.slider-img').slick('slickNext');
+        });
+        $('#blog-circle-right').click(function(){
+            $('.slider-img').slick('slickPrev');
+        });
+
+
+
+    });
+
+/*=============================================
+     Scroll Top Button
+===========================================*/
+    $(".scroll").on("click", function (event) {
+        event.preventDefault();
+        $("html,body").animate({
+            scrollTop: $(this.hash).offset().top - 20}, 1200);
+    });
+
+    $(".scroll1").on("click", function (event) {
+        event.preventDefault();
+        $("html,body").animate({
+            scrollTop: $(this.hash).offset().top - 180}, 1200);
+    });
+
+
+
+});
